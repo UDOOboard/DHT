@@ -113,7 +113,10 @@ int dht::_readSensor(uint8_t pin, uint8_t wakeupDelay)
     // REQUEST SAMPLE
     pinMode(pin, OUTPUT);
     digitalWrite(pin, LOW);
-    delay(wakeupDelay);
+
+    //modified for udooNeo board
+    delayMicroseconds(1000L * wakeupDelay);
+
     digitalWrite(pin, HIGH);
     delayMicroseconds(40);
     pinMode(pin, INPUT);
